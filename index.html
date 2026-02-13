@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team 2 Smart Money | Financial Awareness for Families & Students</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Simple, mobile-first financial awareness platform for students and families. No login required.">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Smart Money</a>
+            <ul class="nav-links">
+                <li><a href="#basics">Basics</a></li>
+                <li><a href="#topics">Topics</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#security">Security</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#basics" class="mobile-link">Basics</a>
+        <a href="#topics" class="mobile-link">Topics</a>
+        <a href="#quiz" class="mobile-link">Quiz</a>
+        <a href="#tools" class="mobile-link">Tools</a>
+        <a href="#security" class="mobile-link">Security</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>Smart Money Decisions Start Early</h1>
+            <p>Empowering students and families with practical financial skills. No jargon, just clear advice.</p>
+	
+            <h2><p>5 Days STEM Training for KVS PGT(CS) under PM SHRI Scheme</p></h2>
+<p><h3> 2026 Team 2 Project: Financial Awareness for Families & Students.</h3></p>
+            <a href="#basics" class="btn btn-primary">Start Learning</a>
+        </div>
+    </header>
+
+    <!-- Feature 1: Financial Awareness Basics -->
+    <section id="basics" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Financial Awareness?</h2>
+                <p>Understanding money is the first step to controlling it.</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <div class="icon">🌱</div>
+                    <h3>Start Early</h3>
+                    <p>Small habits formed in school lead to a lifetime of financial stability.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🏠</div>
+                    <h3>For Families</h3>
+                    <p>Learn together to manage household expenses and avoid debt traps.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">⚠️</div>
+                    <h3>Avoid Mistakes</h3>
+                    <p>Recognize common errors like overspending on "wants" vs "needs".</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 2: Money Management Topics -->
+    <section id="topics" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Money Management</h2>
+                <p>Practical guides for everyday financial decisions.</p>
+            </div>
+
+            <div class="topic-grid">
+                <!-- Content will be populated by JS or static HTML -->
+                <div class="topic-card" data-topic="budgeting">
+                    <h3>Budgeting 101</h3>
+                    <p>The 50/30/20 rule and tracking expenses.</p>
+                    <button class="btn-text">Read More &rarr;</button>
+                </div>
+                <div class="topic-card" data-topic="banking">
+                    <h3>Banking Basics</h3>
+                    <p>Savings accounts, ATMs, and UPI safety.</p>
+                    <button class="btn-text">Read More &rarr;</button>
+                </div>
+                <div class="topic-card" data-topic="loans">
+                    <h3>Loans & Debt</h3>
+                    <p>Understanding Interest, EMIs, and "Good" vs "Bad" debt.</p>
+                    <button class="btn-text">Read More &rarr;</button>
+                </div>
+                <div class="topic-card" data-topic="insurance">
+                    <h3>Insurance</h3>
+                    <p>Why you need emergency funds and life/health cover.</p>
+                    <button class="btn-text">Read More &rarr;</button>
+                </div>
+            </div>
+            
+            <!-- Modal for Topic Details -->
+            <div id="topic-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div id="modal-body"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 3: Interactive Learning (Quiz) -->
+    <section id="quiz" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Test Your Knowledge</h2>
+                <p>Learn by doing with our interactive scenarios.</p>
+            </div>
+            
+            <div class="quiz-container">
+                <div id="quiz-question" class="quiz-question">
+                    <!-- Question injected here -->
+                    <p>Loading quiz...</p>
+                </div>
+                <div id="quiz-options" class="quiz-options">
+                    <!-- Options injected here -->
+                    <button class="btn btn-outline">Start Quiz</button>
+                </div>
+                <div id="quiz-feedback" class="quiz-feedback hidden"></div>
+                <div id="quiz-controls" class="quiz-controls">
+                    <button id="next-btn" class="btn btn-secondary hidden">Next Question</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 4: Tools (Calculator) -->
+    <section id="tools" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Financial Tools</h2>
+                <p>Calculate your future.</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>💰 Savings Goal Calculator</h3>
+                    <p>See how much you need to save monthly to reach a goal.</p>
+                    
+                    <div class="form-group">
+                        <label>Goal Amount (₹)</label>
+                        <input type="number" id="goal-amount" placeholder="e.g. 50000">
+                    </div>
+                    <div class="form-group">
+                        <label>Months to Save</label>
+                        <input type="number" id="goal-months" placeholder="e.g. 12">
+                    </div>
+                    <button id="calc-savings-btn" class="btn btn-primary full-width">Calculate</button>
+                    <div id="savings-result" class="result-box hidden"></div>
+                </div>
+
+                <div class="tool-card">
+                    <h3>📉 Simple EMI Est.</h3>
+                    <p>Estimate monthly payments for a loan.</p>
+                    
+                    <div class="form-group">
+                        <label>Loan Amount (₹)</label>
+                        <input type="number" id="loan-amount" placeholder="e.g. 100000">
+                    </div>
+                    <div class="form-group">
+                        <label>Interest Rate (% p.a)</label>
+                        <input type="number" id="loan-rate" placeholder="e.g. 10">
+                    </div>
+                    <div class="form-group">
+                        <label>Tenure (Years)</label>
+                        <input type="number" id="loan-years" placeholder="e.g. 2">
+                    </div>
+                    <button id="calc-emi-btn" class="btn btn-primary full-width">Calculate EMI</button>
+                    <div id="emi-result" class="result-box hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 5: Security (Fraud Awareness) -->
+    <section id="security" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Stay Safe Online</h2>
+                <p>Protect your family from scams and fraud.</p>
+            </div>
+
+            <div class="scam-grid">
+                <div class="scam-item">
+                    <div class="scam-icon">🚫</div>
+                    <div class="scam-text">
+                        <h3>OTP Fraud</h3>
+                        <p>Never share your OTP with anyone over the phone, even if they claim to be from the bank.</p>
+                    </div>
+                </div>
+                <div class="scam-item">
+                    <div class="scam-icon">🔗</div>
+                    <div class="scam-text">
+                        <h3>Fake Links</h3>
+                        <p>Don't click on SMS links promising "Free Money" or "KYC Update".</p>
+                    </div>
+                </div>
+                <div class="scam-item">
+                    <div class="scam-icon">🎁</div>
+                    <div class="scam-text">
+                        <h3>Lottery Scams</h3>
+                        <p>If you didn't buy a ticket, you didn't win. Ignore "You Won!" messages.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Team 2 Project: Financial Awareness for Families & Students.</p>
+            <p>5 Days STEM Training for KVS PGT(CS) under PM SHRI Scheme</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
