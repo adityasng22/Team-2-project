@@ -4,25 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team 2 Smart Money | Financial Awareness for Families & Students</title>
+    <title>Quiz | Smart Money</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <meta name="description"
-        content="Simple, mobile-first financial awareness platform for students and families. No login required.">
 </head>
 
 <body>
-
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">Smart Money</a>
             <ul class="nav-links">
                 <li><a href="basics.html">Basics</a></li>
                 <li><a href="topics.html">Topics</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="quiz.html" class="active">Quiz</a></li>
                 <li><a href="tools.html">Tools</a></li>
                 <li><a href="security.html">Security</a></li>
                 <li><a href="team.html">Team</a></li>
@@ -35,7 +29,6 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu">
         <a href="basics.html" class="mobile-link">Basics</a>
         <a href="topics.html" class="mobile-link">Topics</a>
@@ -45,23 +38,29 @@
         <a href="team.html" class="mobile-link">Team</a>
     </div>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container hero-content">
-            <h1>Smart Money Decisions Start Early</h1>
-            <p>Empowering students and families with practical financial skills. No jargon, just clear advice.</p>
+    <section id="quiz" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Test Your Knowledge</h2>
+                <p>Learn by doing with our interactive scenarios.</p>
+            </div>
 
-            <!-- User Custom Content -->
-            <h2>
-                <p>5 Days STEM Training for KVS PGT(CS) under PM SHRI Scheme</p>
-            </h2>
-            <p>
-            <h3> 2026 Team 2 Project: Financial Awareness for Families & Students.</h3>
-            </p>
-
-            <a href="basics.html" class="btn btn-primary">Start Learning</a>
+            <div class="quiz-container">
+                <div id="quiz-question" class="quiz-question">
+                    <!-- Question injected here -->
+                    <p>Loading quiz...</p>
+                </div>
+                <div id="quiz-options" class="quiz-options">
+                    <!-- Options injected here -->
+                    <button class="btn btn-outline">Start Quiz</button>
+                </div>
+                <div id="quiz-feedback" class="quiz-feedback hidden"></div>
+                <div id="quiz-controls" class="quiz-controls">
+                    <button id="next-btn" class="btn btn-secondary hidden">Next Question</button>
+                </div>
+            </div>
         </div>
-    </header>
+    </section>
 
     <footer class="footer">
         <div class="container footer-content">

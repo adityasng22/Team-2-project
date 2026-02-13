@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // --- Navigation & Mobile Menu ---
     const hamburger = document.querySelector('.hamburger');
     const mobileMenu = document.querySelector('.mobile-menu');
@@ -77,176 +77,174 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Modal Logic ---
     const modal = document.getElementById('topic-modal');
-    const modalBody = document.getElementById('modal-body');
-    const closeModal = document.querySelector('.close-modal');
-    const topicCards = document.querySelectorAll('.topic-card');
+    if (modal) {
+        const modalBody = document.getElementById('modal-body');
+        const closeModal = document.querySelector('.close-modal');
+        const topicCards = document.querySelectorAll('.topic-card');
 
-    topicCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const topic = card.getAttribute('data-topic');
-            if (topicData[topic]) {
-                modalBody.innerHTML = `<h2>${topicData[topic].title}</h2>${topicData[topic].content}`;
-                modal.style.display = 'block';
+        topicCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const topic = card.getAttribute('data-topic');
+                if (topicData[topic]) {
+                    modalBody.innerHTML = `<h2>${topicData[topic].title}</h2>${topicData[topic].content}`;
+                    modal.style.display = 'block';
+                }
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
             }
         });
-    });
-
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
+    }
 
     // --- Quiz Logic ---
-    const quizData = [
-        {
-            question: "You get ₹500 as a birthday gift. What is the smartest move?",
-            options: [
-                "Spend it all on a video game",
-                "Save ₹200, Spend ₹300",
-                "Lend it to a friend who never pays back"
-            ],
-            correct: 1,
-            feedback: "Correct! Saving a portion (the 20% rule) builds a habit, while still allowing you to enjoy your gift."
-        },
-        {
-            question: "Someone calls asking for your UPI PIN to 'receive' a prize. You should:",
-            options: [
-                "Give them the PIN quickly",
-                "Disconnect the call immediately",
-                "Ask them to wait while you find it"
-            ],
-            correct: 1,
-            feedback: "Correct! You never need a PIN to receive money. This is a common scam."
-        },
-        {
-            question: "Which of these is a 'Need'?",
-            options: [
-                "The latest iPhone",
-                "Dining at a restaurant",
-                "Groceries for the week"
-            ],
-            correct: 2,
-            feedback: "Correct! Needs are essentials for survival. The others are Wants."
-        }
-    ];
-
-    let currentQuestion = 0;
     const quizContainer = document.querySelector('.quiz-container');
-    const questionEl = document.getElementById('quiz-question');
-    const optionsEl = document.getElementById('quiz-options');
-    const feedbackEl = document.getElementById('quiz-feedback');
-    const nextBtn = document.getElementById('next-btn');
+    if (quizContainer) {
+        const quizData = [
+            {
+                question: "You get ₹500 as a birthday gift. What is the smartest move?",
+                options: [
+                    "Spend it all on a video game",
+                    "Save ₹200, Spend ₹300",
+                    "Lend it to a friend who never pays back"
+                ],
+                correct: 1,
+                feedback: "Correct! Saving a portion (the 20% rule) builds a habit, while still allowing you to enjoy your gift."
+            },
+            {
+                question: "Someone calls asking for your UPI PIN to 'receive' a prize. You should:",
+                options: [
+                    "Give them the PIN quickly",
+                    "Disconnect the call immediately",
+                    "Ask them to wait while you find it"
+                ],
+                correct: 1,
+                feedback: "Correct! You never need a PIN to receive money. This is a common scam."
+            },
+            {
+                question: "Which of these is a 'Need'?",
+                options: [
+                    "The latest iPhone",
+                    "Dining at a restaurant",
+                    "Groceries for the week"
+                ],
+                correct: 2,
+                feedback: "Correct! Needs are essentials for survival. The others are Wants."
+            }
+        ];
 
-    function loadQuiz() {
-        // Initial state
-        if (currentQuestion === -1) {
-            // Start button logic if we wanted a start screen, but we'll just start
-            currentQuestion = 0;
-        }
+        let currentQuestion = 0;
+        const questionEl = document.getElementById('quiz-question');
+        const optionsEl = document.getElementById('quiz-options');
+        const feedbackEl = document.getElementById('quiz-feedback');
+        const nextBtn = document.getElementById('next-btn');
 
-        if (currentQuestion >= quizData.length) {
-            questionEl.innerHTML = "<h3>Quiz Completed! 🎉</h3><p>You are on your way to becoming financially smart!</p>";
-            optionsEl.innerHTML = '<button onclick="location.reload()" class="btn btn-outline">Restart Quiz</button>';
+        function loadQuiz() {
+            if (currentQuestion >= quizData.length) {
+                questionEl.innerHTML = "<h3>Quiz Completed! 🎉</h3><p>You are on your way to becoming financially smart!</p>";
+                optionsEl.innerHTML = '<button onclick="location.reload()" class="btn btn-outline">Restart Quiz</button>';
+                feedbackEl.classList.add('hidden');
+                nextBtn.classList.add('hidden');
+                return;
+            }
+
+            const data = quizData[currentQuestion];
+            questionEl.innerHTML = `<p>${currentQuestion + 1}. ${data.question}</p>`;
+            optionsEl.innerHTML = '';
+
+            data.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.classList.add('quiz-option');
+                btn.textContent = opt;
+                btn.addEventListener('click', () => checkAnswer(index, btn));
+                optionsEl.appendChild(btn);
+            });
+
             feedbackEl.classList.add('hidden');
+            feedbackEl.textContent = '';
             nextBtn.classList.add('hidden');
-            return;
         }
 
-        const data = quizData[currentQuestion];
-        questionEl.innerHTML = `<p>${currentQuestion + 1}. ${data.question}</p>`;
-        optionsEl.innerHTML = '';
-        
-        data.options.forEach((opt, index) => {
-            const btn = document.createElement('button');
-            btn.classList.add('quiz-option');
-            btn.textContent = opt;
-            btn.addEventListener('click', () => checkAnswer(index, btn));
-            optionsEl.appendChild(btn);
+        function checkAnswer(selectedIndex, btn) {
+            // Disable all buttons
+            const allBtns = optionsEl.querySelectorAll('.quiz-option');
+            allBtns.forEach(b => b.style.pointerEvents = 'none');
+
+            const data = quizData[currentQuestion];
+            if (selectedIndex === data.correct) {
+                btn.classList.add('correct');
+                feedbackEl.classList.remove('hidden');
+                feedbackEl.style.color = 'var(--secondary)';
+                feedbackEl.innerText = "✅ " + data.feedback;
+            } else {
+                btn.classList.add('incorrect');
+                // Highlight correct one
+                allBtns[data.correct].classList.add('correct');
+                feedbackEl.classList.remove('hidden');
+                feedbackEl.style.color = 'var(--danger)';
+                feedbackEl.innerText = "❌ Oops! " + data.feedback;
+            }
+
+            nextBtn.classList.remove('hidden');
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentQuestion++;
+            loadQuiz();
         });
 
-        feedbackEl.classList.add('hidden');
-        feedbackEl.textContent = '';
-        nextBtn.classList.add('hidden');
-    }
-
-    function checkAnswer(selectedIndex, btn) {
-        // Disable all buttons
-        const allBtns = optionsEl.querySelectorAll('.quiz-option');
-        allBtns.forEach(b => b.style.pointerEvents = 'none');
-
-        const data = quizData[currentQuestion];
-        if (selectedIndex === data.correct) {
-            btn.classList.add('correct');
-            feedbackEl.classList.remove('hidden');
-            feedbackEl.style.color = 'var(--secondary)';
-            feedbackEl.innerText = "✅ " + data.feedback;
-        } else {
-            btn.classList.add('incorrect');
-            // Highlight correct one
-            allBtns[data.correct].classList.add('correct');
-            feedbackEl.classList.remove('hidden');
-            feedbackEl.style.color = 'var(--danger)';
-            feedbackEl.innerText = "❌ Oops! " + data.feedback;
-        }
-        
-        nextBtn.classList.remove('hidden');
-    }
-
-    nextBtn.addEventListener('click', () => {
-        currentQuestion++;
+        // Start Quiz
         loadQuiz();
-    });
-
-    // Start Quiz
-    loadQuiz();
+    }
 
     // --- Calculator Logic ---
-    
-    // Savings Calculator
     const calcSavingsBtn = document.getElementById('calc-savings-btn');
-    const savingsResult = document.getElementById('savings-result');
+    if (calcSavingsBtn) {
+        const savingsResult = document.getElementById('savings-result');
 
-    calcSavingsBtn.addEventListener('click', () => {
-        const goal = parseFloat(document.getElementById('goal-amount').value);
-        const months = parseFloat(document.getElementById('goal-months').value);
+        calcSavingsBtn.addEventListener('click', () => {
+            const goal = parseFloat(document.getElementById('goal-amount').value);
+            const months = parseFloat(document.getElementById('goal-months').value);
 
-        if (goal && months) {
-            const monthlySave = (goal / months).toFixed(2);
-            savingsResult.classList.remove('hidden');
-            savingsResult.innerHTML = `You need to save <strong>₹${monthlySave}</strong> per month to reach your goal.`;
-        } else {
-            savingsResult.classList.remove('hidden');
-            savingsResult.innerHTML = "Please enter valid numbers.";
-        }
-    });
+            if (goal && months) {
+                const monthlySave = (goal / months).toFixed(2);
+                savingsResult.classList.remove('hidden');
+                savingsResult.innerHTML = `You need to save <strong>₹${monthlySave}</strong> per month to reach your goal.`;
+            } else {
+                savingsResult.classList.remove('hidden');
+                savingsResult.innerHTML = "Please enter valid numbers.";
+            }
+        });
 
-    // EMI Calculator
-    const calcEmiBtn = document.getElementById('calc-emi-btn');
-    const emiResult = document.getElementById('emi-result');
+        // EMI Calculator
+        const calcEmiBtn = document.getElementById('calc-emi-btn');
+        const emiResult = document.getElementById('emi-result');
 
-    calcEmiBtn.addEventListener('click', () => {
-        const principal = parseFloat(document.getElementById('loan-amount').value);
-        const rate = parseFloat(document.getElementById('loan-rate').value);
-        const years = parseFloat(document.getElementById('loan-years').value);
+        calcEmiBtn.addEventListener('click', () => {
+            const principal = parseFloat(document.getElementById('loan-amount').value);
+            const rate = parseFloat(document.getElementById('loan-rate').value);
+            const years = parseFloat(document.getElementById('loan-years').value);
 
-        if (principal && rate && years) {
-            const r = rate / 12 / 100; // monthly rate
-            const n = years * 12; // months
-            
-            // EMI Formula: P * r * (1+r)^n / ((1+r)^n - 1)
-            const emi = (principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-            
-            emiResult.classList.remove('hidden');
-            emiResult.innerHTML = `Your estimated monthly EMI is <strong>₹${emi.toFixed(2)}</strong>`;
-        } else {
-            emiResult.classList.remove('hidden');
-            emiResult.innerHTML = "Please enter valid numbers.";
-        }
-    });
+            if (principal && rate && years) {
+                const r = rate / 12 / 100; // monthly rate
+                const n = years * 12; // months
+
+                // EMI Formula: P * r * (1+r)^n / ((1+r)^n - 1)
+                const emi = (principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+
+                emiResult.classList.remove('hidden');
+                emiResult.innerHTML = `Your estimated monthly EMI is <strong>₹${emi.toFixed(2)}</strong>`;
+            } else {
+                emiResult.classList.remove('hidden');
+                emiResult.innerHTML = "Please enter valid numbers.";
+            }
+        });
+    }
 
 });

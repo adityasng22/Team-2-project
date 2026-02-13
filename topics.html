@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topics | Smart Money</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Smart Money</a>
+            <ul class="nav-links">
+                <li><a href="basics.html">Basics</a></li>
+                <li><a href="topics.html" class="active">Topics</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="tools.html">Tools</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="team.html">Team</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <a href="basics.html" class="mobile-link">Basics</a>
+        <a href="topics.html" class="mobile-link">Topics</a>
+        <a href="quiz.html" class="mobile-link">Quiz</a>
+        <a href="tools.html" class="mobile-link">Tools</a>
+        <a href="security.html" class="mobile-link">Security</a>
+        <a href="team.html" class="mobile-link">Team</a>
+    </div>
+
+    <section id="topics" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Money Management</h2>
+                <p>Practical guides for everyday financial decisions.</p>
+            </div>
+
+            <div class="topic-grid">
+                <div class="topic-card" data-topic="budgeting">
+                    <h3>Budgeting 101</h3>
+                    <p>The 50/30/20 rule and tracking expenses.</p>
+                    <button class="btn-text">Read More &rarr;</button>
+                </div>
+                <div class="topic-card" data-topic="banking">
+                    <h3>Banking Basics</h3>
+                    <p>Savings accounts, ATMs, and UPI safety.</p>
+                    <button class="btn-text">Read More &rarr;</button>
+                </div>
+                <div class="topic-card" data-topic="loans">
+                    <h3>Loans & Debt</h3>
+                    <p>Understanding Interest, EMIs, and "Good" vs "Bad" debt.</p>
+                    <button class="btn-text">Read More &rarr;</button>
+                </div>
+                <div class="topic-card" data-topic="insurance">
+                    <h3>Insurance</h3>
+                    <p>Why you need emergency funds and life/health cover.</p>
+                    <button class="btn-text">Read More &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Modal for Topic Details -->
+            <div id="topic-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div id="modal-body"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Team 2 Project: Financial Awareness for Families & Students.</p>
+            <p>5 Days STEM Training for KVS PGT(CS) under PM SHRI Scheme</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

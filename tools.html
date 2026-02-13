@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools | Smart Money</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Smart Money</a>
+            <ul class="nav-links">
+                <li><a href="basics.html">Basics</a></li>
+                <li><a href="topics.html">Topics</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="tools.html" class="active">Tools</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="team.html">Team</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <a href="basics.html" class="mobile-link">Basics</a>
+        <a href="topics.html" class="mobile-link">Topics</a>
+        <a href="quiz.html" class="mobile-link">Quiz</a>
+        <a href="tools.html" class="mobile-link">Tools</a>
+        <a href="security.html" class="mobile-link">Security</a>
+        <a href="team.html" class="mobile-link">Team</a>
+    </div>
+
+    <section id="tools" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Financial Tools</h2>
+                <p>Calculate your future.</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>💰 Savings Goal Calculator</h3>
+                    <p>See how much you need to save monthly to reach a goal.</p>
+
+                    <div class="form-group">
+                        <label>Goal Amount (₹)</label>
+                        <input type="number" id="goal-amount" placeholder="e.g. 50000">
+                    </div>
+                    <div class="form-group">
+                        <label>Months to Save</label>
+                        <input type="number" id="goal-months" placeholder="e.g. 12">
+                    </div>
+                    <button id="calc-savings-btn" class="btn btn-primary full-width">Calculate</button>
+                    <div id="savings-result" class="result-box hidden"></div>
+                </div>
+
+                <div class="tool-card">
+                    <h3>📉 Simple EMI Est.</h3>
+                    <p>Estimate monthly payments for a loan.</p>
+
+                    <div class="form-group">
+                        <label>Loan Amount (₹)</label>
+                        <input type="number" id="loan-amount" placeholder="e.g. 100000">
+                    </div>
+                    <div class="form-group">
+                        <label>Interest Rate (% p.a)</label>
+                        <input type="number" id="loan-rate" placeholder="e.g. 10">
+                    </div>
+                    <div class="form-group">
+                        <label>Tenure (Years)</label>
+                        <input type="number" id="loan-years" placeholder="e.g. 2">
+                    </div>
+                    <button id="calc-emi-btn" class="btn btn-primary full-width">Calculate EMI</button>
+                    <div id="emi-result" class="result-box hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Team 2 Project: Financial Awareness for Families & Students.</p>
+            <p>5 Days STEM Training for KVS PGT(CS) under PM SHRI Scheme</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
